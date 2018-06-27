@@ -146,6 +146,7 @@ export default class DropzoneS3Uploader extends React.Component {
   renderError = ({error}) => (error ? (<div className="rdsu-error small">{error}</div>) : null)
 
   render() {
+    console.log("QPIX RENDER")
     const {
       s3Url,
       passChildrenProps,

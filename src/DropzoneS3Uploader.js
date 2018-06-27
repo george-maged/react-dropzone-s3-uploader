@@ -84,10 +84,12 @@ export default class DropzoneS3Uploader extends React.Component {
   componentWillReceiveProps = props => this.setUploaderOptions(props)
 
   setUploaderOptions = props => {
+    console.log(props)
     this.setState({
       uploaderOptions: Object.assign({
         signingUrl: '/s3/sign',
         s3path: '',
+        inputRef: props.inputRef,
         contentDisposition: 'auto',
         uploadRequestHeaders: {'x-amz-acl': 'public-read'},
         onFinishS3Put: this.handleFinish,
@@ -146,7 +148,6 @@ export default class DropzoneS3Uploader extends React.Component {
   renderError = ({error}) => (error ? (<div className="rdsu-error small">{error}</div>) : null)
 
   render() {
-    console.log("QPIX RENDER")
     const {
       s3Url,
       passChildrenProps,

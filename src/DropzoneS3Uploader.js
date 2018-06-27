@@ -89,7 +89,6 @@ export default class DropzoneS3Uploader extends React.Component {
       uploaderOptions: Object.assign({
         signingUrl: '/s3/sign',
         s3path: '',
-        inputRef: props.upload.inputRef,
         contentDisposition: 'auto',
         uploadRequestHeaders: {'x-amz-acl': 'public-read'},
         onFinishS3Put: this.handleFinish,
@@ -129,7 +128,8 @@ export default class DropzoneS3Uploader extends React.Component {
       ...this.state.uploaderOptions,
     }
     console.log(options)
-    new S3Upload(options) // eslint-disable-line
+    let S3Instance = new S3Upload(options) // eslint-disable-line
+    this.props.callUpload(S3Instance)
     this.props.onDrop && this.props.onDrop(files, rejectedFiles)
   }
 

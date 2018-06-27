@@ -129,7 +129,9 @@ export default class DropzoneS3Uploader extends React.Component {
     }
     console.log(options)
     let S3Instance = new S3Upload(options) // eslint-disable-line
-    this.props.callUpload(S3Instance)
+    console.log("GOING TO CALL")
+    options.callUpload(S3Instance)
+    console.log("CALLED")
     this.props.onDrop && this.props.onDrop(files, rejectedFiles)
   }
 

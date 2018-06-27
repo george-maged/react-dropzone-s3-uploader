@@ -89,7 +89,7 @@ export default class DropzoneS3Uploader extends React.Component {
       uploaderOptions: Object.assign({
         signingUrl: '/s3/sign',
         s3path: '',
-        inputRef: props.inputRef,
+        inputRef: props.upload.inputRef,
         contentDisposition: 'auto',
         uploadRequestHeaders: {'x-amz-acl': 'public-read'},
         onFinishS3Put: this.handleFinish,
